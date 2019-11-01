@@ -34,10 +34,10 @@ const PageBase = ({ location, children }) => {
     <Body>
       <GlobalStyle />
       <Helmet
-        title="Darren Britton"
+        title="Lukonez"
         meta={[
-          { name: 'description', content: 'portfolio' },
-          { name: 'keywords', content: 'darren, britton, portfolio' },
+          { name: 'description', content: 'Namaz od cistog bijelog luka' },
+          { name: 'keywords', content: 'Namaz, Lukonez, namaz od bijelog luka, zdrava hrana' },
           { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         ]}
       />

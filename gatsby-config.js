@@ -1,9 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Darren Britton`
+    title: `Lukonez`
   },
   plugins: [
-    `gatsby-plugin-netlify-cms`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,

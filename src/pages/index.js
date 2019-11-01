@@ -4,7 +4,7 @@ import { Flex, Box } from 'grid-styled'
 import styled, { css } from 'styled-components'
 import Img from 'gatsby-image'
 import FlickrHero from 'react-flickr-hero'
-
+import Button from '../components/button'
 import { media } from '../utils/style'
 
 import Layout from '../components/layout'
@@ -169,6 +169,28 @@ const Item = styled.div`
   `}
 `
 
+const styles = {
+  Input: {
+    width: `19.4vw`,
+    color: `black`,
+    textAlign: `center`,
+    padding: `0.7rem`,
+    marginBottom: `0.5rem`,
+    fontFamily: `Ubuntu`,
+    marginRight: `0.5rem`,
+    marginBottom: `1rem`
+  },
+  textAreaInput: {
+    width: `39.5vw`,
+    color: `black`,
+    textAlign: `center`,
+    padding: `0.7rem`,
+    marginBottom: `0.5rem`,
+    fontFamily: `Ubuntu`
+  }
+
+}
+
 export default props => {
   const content = (
     <Content>
@@ -188,23 +210,23 @@ export default props => {
           bottom: 16,
         }}
         icons={[
-          {
-            name: 'twitter',
-            href: 'https://twitter.com/darren_britton',
-          },
-          {
-            name: 'github-alt',
-            href: 'https://github.com/darrenbritton',
-          },
+          // {
+          //   name: 'twitter',
+          //   href: 'https://twitter.com/darren_britton',
+          // },
+          // {
+          //   name: 'github-alt',
+          //   href: 'https://github.com/darrenbritton',
+          // },
           {
             name: 'linkedin',
-            href: 'https://ie.linkedin.com/in/darrenbritton',
+            href: 'https://ie.linkedin.com/in/lukonez',
           },
         ]}
       />
-      <a id="about-me">About Me</a>
+      <a id="onama">O nama</a>
       <Section>
-        <Title>About Me</Title>
+        <Title>O nama</Title>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <p>
@@ -229,47 +251,43 @@ export default props => {
           </Box>
         </Flex>
       </Section>
-      <Title small>Portfolio</Title>
-      <a id="portfolio">Portfolio</a>
+      <Title >Blog</Title>
+      <a id="portfolio">Blog</a>
       <Portfolio items={props.data.allMarkdownRemark.edges} />
-      <a id="experience">Experience</a>
-      <Section center dark>
-        <h4>Experience</h4>
-        <span>Where I've worked.</span>
-        <Item>
-          <span>MAY 2018 - CURRENT</span>
-          <h6>SHUTTERSTOCK</h6>
-          <p>Software Engineer</p>
-        </Item>
-        <Item>
-          <span>JUNE 2016 - APRIL 2018</span>
-          <h6>SAP IRELAND</h6>
-          <p>Full Stack Developer</p>
-        </Item>
-        <Item>
-          <span>FEB 2015 - AUG 2015</span>
-          <h6>SAP IRELAND</h6>
-          <p>Support Engineer</p>
-        </Item>
-        <Item>
-          <span>JAN 2014 - JULY 2014</span>
-          <h6>ST DECLAN'S COLLEGE</h6>
-          <p>Full Stack Developer</p>
-        </Item>
-      </Section>
-      <a id="education">Education</a>
+      <a id="kontakt">Kontakt</a>
       <Section dark center>
-        <h4>EDUCATION</h4>
-        <span>Education I've recieved.</span>
+        <h4>Kontakt</h4>
+        <span>Ukoliko zelite da nas kontaktirate ispunite formular ispod.</span>
         <Item>
-          <span>2012 - 2016</span>
-          <h6>BSC COMPUTER SCIENCE (1st Class Honours)</h6>
-          <p>Dublin Institute of Technology</p>
-        </Item>
-        <Item>
-          <span>2006 - 2012</span>
-          <h6>SECONDARY EDUCATION</h6>
-          <p>Saint Declan's College</p>
+        <form  name="contact" method="post" action="/success" data-netlify="true" data-netlify-honeypot="bot-field">
+          <input type="hidden" name="form-name" value="contact" />
+            <input 
+              style={styles.Input}
+              type="text" 
+              name="name" 
+              id="name" 
+              placeholder="Vase ime"/>
+             
+            <input
+              style={styles.Input}
+              placeholder="Vas Email"
+              type="text" 
+              name="email" 
+              id="email" />
+              <br />
+
+            <textarea 
+              style={styles.textAreaInput}
+              autoFocus={false}
+              name="message" 
+              id="message" 
+              rows="6" 
+              placeholder="Sadrzaj kratke poruke..."/> 
+              <br/>  
+              <Button
+                dark="dark"
+                opaque="opaque">Send</Button>
+          </form>
         </Item>
       </Section>
     </Content>
@@ -301,7 +319,7 @@ export const pageQuery = graphql`
                 sizes(
                   maxWidth: 500
                   duotone: {
-                    highlight: "#333333"
+                    highlight: "#000000"
                     shadow: "#111111"
                     opacity: 65
                   }
@@ -314,19 +332,19 @@ export const pageQuery = graphql`
         }
       }
     }
-    allImageSharp: allFile(filter: { relativePath: { regex: "/logos/" } }) {
-      edges {
-        node {
-          id
-          childImageSharp {
-            sizes(maxWidth: 300, grayscale: true) {
-              ...GatsbyImageSharpSizes_tracedSVG
-            }
-          }
-        }
-      }
-    }
-    allFile(filter: { name: { regex: "/signature/" } }) {
+    # allImageSharp: allFile(filter: { relativePath: { regex: "/logos/" } }) {
+    #   edges {
+    #     node {
+    #       id
+    #       childImageSharp {
+    #         sizes(maxWidth: 300, grayscale: true) {
+    #           ...GatsbyImageSharpSizes_tracedSVG
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+    allFile(filter: { name: { regex: "/lukonez/" } }) {
       edges {
         node {
           childImageSharp {

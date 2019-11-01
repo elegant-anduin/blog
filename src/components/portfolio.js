@@ -165,7 +165,7 @@ class Portfolio extends React.Component {
         {items}
         <Box m="auto">
           <Button center onClick={() => this.toggleShow()}>
-            {this.state.viewAll ? 'View Less' : 'View More'}
+            {this.state.viewAll ? 'Umanji' : 'Prosiri'}
           </Button>
         </Box>
       </Flex>
