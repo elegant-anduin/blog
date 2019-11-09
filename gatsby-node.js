@@ -1,10 +1,10 @@
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
-const { fmImagesToRelative } = require('gatsby-remark-relative-images');
+const { fmImagesToRelative } = require("gatsby-remark-relative-images");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  fmImagesToRelative(node)
+  fmImagesToRelative(node);
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode, basePath: `pages` });
     createNodeField({
@@ -16,6 +16,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 };
 
 exports.createPages = ({ graphql, actions }) => {
+  const blogPostTemplate = require.resolve("./src/templates/blog-post");
   const { createPage } = actions;
   return new Promise(resolve => {
     graphql(`
@@ -34,7 +35,7 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allMarkdownRemark.edges.map(({ node }) => {
         createPage({
           path: node.fields.slug,
-          component: path.resolve(`./src/templates/blog-post.js`),
+          component: blogPostTemplate,
           context: {
             // Data passed to context is available in page queries as GraphQL variables.
             slug: node.fields.slug
