@@ -1,5 +1,6 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
+import React from "react";
+import styled, { css } from "styled-components";
+import scrollToElement from "scroll-to-element";
 
 const Base = styled.a`
   font-size: 20pt;
@@ -13,9 +14,9 @@ const Base = styled.a`
 
   &:hover {
     cursor: pointer;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: wheat;
     -webkit-background-clip: text;
-    background-image: url(https://media.giphy.com/media/l41YcGT5ShJa0nCM0/giphy.gif);
+    // background-image: url(https://media.giphy.com/media/l41YcGT5ShJa0nCM0/giphy.gif);
     text-decoration: none;
     -webkit-transform:rotate(354deg);
   }
@@ -43,16 +44,21 @@ const Base = styled.a`
     css`
       font-size: 2em;
     `}
-`
+`;
 
 class Name extends React.Component {
   render() {
     return (
-      <Base {...this.props} href="/">
+      <Base
+        {...this.props}
+        onClick={() => {
+          scrollToElement("html");
+        }}
+      >
         Lukonez
       </Base>
-    )
+    );
   }
 }
 
-export default Name
+export default Name;

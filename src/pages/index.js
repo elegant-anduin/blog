@@ -1,17 +1,17 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import { Flex, Box } from 'grid-styled'
-import styled, { css } from 'styled-components'
-import Img from 'gatsby-image'
-import FlickrHero from 'react-flickr-hero'
-import Button from '../components/button'
-import { media } from '../utils/style'
+import React from "react";
+import { graphql } from "gatsby";
+import { Flex, Box } from "grid-styled";
+import styled, { css } from "styled-components";
+import Img from "gatsby-image";
+import FlickrHero from "react-flickr-hero";
+import Button from "../components/button";
+import { media } from "../utils/style";
 
-import Layout from '../components/layout'
-import NavBar from '../components/navbar'
-import HeroText from '../components/heroText'
-import SocialIcons from '../components/socialIcons'
-import Portfolio from '../components/portfolio'
+import Layout from "../components/layout";
+import NavBar from "../components/navbar";
+import HeroText from "../components/heroText";
+import SocialIcons from "../components/socialIcons";
+import Portfolio from "../components/portfolio";
 
 const Content = styled.div`
   & > a {
@@ -22,10 +22,10 @@ const Content = styled.div`
   & > h1 {
     text-align: center;
   }
-`
+`;
 
 const Title = styled.h1`
-  font-family: 'Raleway';
+  font-family: "Raleway";
   text-transform: uppercase;
   letter-spacing: 6px;
   margin-bottom: 40px;
@@ -43,7 +43,7 @@ const Title = styled.h1`
       font-weight: 700;
       line-height: 24px;
     `}
-`
+`;
 
 const Section = styled.div`
   text-align: center;
@@ -51,7 +51,7 @@ const Section = styled.div`
   padding-bottom: 40px;
 
   a {
-    font-family: 'Lato';
+    font-family: "Lato";
   }
 
   p {
@@ -66,7 +66,7 @@ const Section = styled.div`
   h4,
   h5,
   h6 {
-    font-family: 'Raleway';
+    font-family: "Raleway";
     text-transform: uppercase;
     color: #292929;
   }
@@ -136,7 +136,7 @@ const Section = styled.div`
         border-bottom: 1px solid #333 !important;
       }
     `}
-`
+`;
 
 const Item = styled.div`
   width: 40%;
@@ -167,11 +167,11 @@ const Item = styled.div`
     width: 90%;
 
   `}
-`
+`;
 
 const styles = {
   Input: {
-    width: `19.4vw`,
+    width: `19.3vw`,
     color: `black`,
     textAlign: `center`,
     padding: `0.7rem`,
@@ -188,8 +188,7 @@ const styles = {
     marginBottom: `0.5rem`,
     fontFamily: `Ubuntu`
   }
-
-}
+};
 
 export default props => {
   const content = (
@@ -203,41 +202,38 @@ export default props => {
       <HeroText />
       <SocialIcons
         style={{
-          position: 'absolute',
-          margin: '0 auto',
+          position: "absolute",
+          margin: "0 auto",
           left: 0,
           right: 0,
-          bottom: 16,
+          bottom: 16
         }}
         icons={[
           // {
           //   name: 'twitter',
           //   href: 'https://twitter.com/darren_britton',
           // },
-          // {
-          //   name: 'github-alt',
-          //   href: 'https://github.com/darrenbritton',
-          // },
           {
-            name: 'linkedin',
-            href: 'https://ie.linkedin.com/in/lukonez',
+            name: "facebook",
+            href: "https://www.facebook.com/lukonez.namaz.1"
           },
+          {
+            name: "instagram",
+            href: "https://instagram.com/lukonez.namaz"
+          }
         ]}
       />
-      <a id="onama">O nama</a>
+      <a id="onama">O proizvodu</a>
       <Section>
-        <Title>O nama</Title>
+        <Title>O proizvodu</Title>
         <Flex alignItems="center" flexDirection="column">
           <Box px={2} width={[1, 1 / 2]}>
             <p>
-              Currently working as a software engineer at{' '}
-              <a href="https://shutterstock.com">Shutterstock</a> focusing on
-              the editorial content platform. As far as my work goes I've
-              probably worn every hat on the rack, most notable being Web
-              Developer, Software Engineer and Photographer. Don’t let my clean
-              lines and weakness for Swiss type fool you; My work has been
-              pretty diverse and enjoyable. For more information about me follow
-              one of my social media links above or at the bottom of the page.
+              Proizvod nastaje kao produkt domaće radinosti. Ideja o Lukonezu
+              nastala je kao želja za konzumacijom bijelog luka zbog svih
+              njegovih benefita a da pritom umanjimo koliko god je moguce
+              neugodane mirise. Način na koji proizvodimo ne ugrožava njegova
+              biohemijska svojstva. <br />
             </p>
           </Box>
           <Box px={2} width={180}>
@@ -251,61 +247,70 @@ export default props => {
           </Box>
         </Flex>
       </Section>
-      <Title >Blog</Title>
+      <Title>Blog</Title>
       <a id="portfolio">Blog</a>
       <Portfolio items={props.data.allMarkdownRemark.edges} />
       <a id="kontakt">Kontakt</a>
       <Section dark center>
         <h4>Kontakt</h4>
-        <span>Ukoliko zelite da nas kontaktirate ispunite formular ispod.</span>
-        <Item>
-        <form  name="contact" method="post" action="/success" data-netlify="true" data-netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact" />
-            <input 
-              style={styles.Input}
-              type="text" 
-              name="name" 
-              id="name" 
-              placeholder="Vase ime"/>
-             
-            <input
-              style={styles.Input}
-              placeholder="Vas Email"
-              type="text" 
-              name="email" 
-              id="email" />
-              <br />
+        <span>
+          Ukoliko želite da nas kontaktirate <br /> ispunite formular ispod.
+        </span>
 
-            <textarea 
-              style={styles.textAreaInput}
-              autoFocus={false}
-              name="message" 
-              id="message" 
-              rows="6" 
-              placeholder="Sadrzaj kratke poruke..."/> 
-              <br/>  
-              <Button
-                dark="dark"
-                opaque="opaque">Send</Button>
-          </form>
-        </Item>
+        <form
+          name="contact"
+          method="post"
+          action="/success"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input
+            style={styles.Input}
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Vase ime"
+          />
+
+          <input
+            style={styles.Input}
+            placeholder="Vas Email"
+            type="text"
+            name="email"
+            id="email"
+          />
+          <br />
+
+          <textarea
+            style={styles.textAreaInput}
+            autoFocus={false}
+            name="message"
+            id="message"
+            rows="6"
+            placeholder="Sadrzaj kratke poruke..."
+          />
+          <br />
+          <Button dark="dark" opaque="opaque">
+            Pošalji
+          </Button>
+        </form>
       </Section>
     </Content>
-  )
+  );
   return (
     <Layout location={props.location}>
       <NavBar main children={content.props.children} />
       {content}
     </Layout>
-  )
-}
+  );
+};
 
 export const pageQuery = graphql`
   query IndexQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
-          timeToRead
           excerpt(pruneLength: 120)
           fields {
             slug
@@ -316,15 +321,16 @@ export const pageQuery = graphql`
             tags
             image {
               childImageSharp {
-                sizes(
+                fluid(
                   maxWidth: 500
+                  maxHeight: 400
                   duotone: {
                     highlight: "#000000"
                     shadow: "#111111"
                     opacity: 65
                   }
-                  ) {
-                  ...GatsbyImageSharpSizes
+                ) {
+                  ...GatsbyImageSharpFluid
                 }
               }
             }
@@ -356,4 +362,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

@@ -1,8 +1,8 @@
-import React from 'react'
-import styled, { css } from 'styled-components'
-import Typist from 'react-typist'
+import React from "react";
+import styled, { css } from "styled-components";
+import Typist from "react-typist";
 
-import { media } from '../utils/style'
+import { media } from "../utils/style";
 
 const StyledTypist = styled(Typist)`
   color: #fff;
@@ -12,7 +12,7 @@ const StyledTypist = styled(Typist)`
   line-height: 80px;
   font-weight: 100;
   text-transform: uppercase;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   position: absolute;
   top: 50%;
   left: 45%;
@@ -25,7 +25,7 @@ const StyledTypist = styled(Typist)`
   top: 15%;
   letter-spacing: 12px;
 `}
-`
+`;
 
 class HeroText extends React.Component {
   render() {
@@ -34,16 +34,16 @@ class HeroText extends React.Component {
         <Typist>
           <StyledTypist {...this.props}>
             <strong>
-              {this.props.text.split(' ').slice(0, 1)}
+              {this.props.text.split(" ").slice(0, 1)}
               <br />
             </strong>
             {this.props.text
-              .split(' ')
+              .split(" ")
               .slice(1)
-              .join(' ')}
+              .join(" ")}
           </StyledTypist>
         </Typist>
-      )
+      );
     }
     return (
       <StyledTypist cursor={{ show: false }} {...this.props}>
@@ -51,11 +51,11 @@ class HeroText extends React.Component {
         <Typist.Backspace count={9} delay={300} />
         <span>Uzgajamo</span>
         <Typist.Backspace count={9} delay={300} />
-        <span> Cistimo</span>
+        <span> Čistimo</span>
         <Typist.Backspace count={7} delay={300} />
         <span> Sortiramo</span>
         <Typist.Backspace count={9} delay={200} />
-        <span>Preradjujemo</span>
+        <span>Prerađujemo</span>
         <Typist.Delay ms={100} />
         <span>.</span>
         <Typist.Delay ms={200} />
@@ -63,10 +63,10 @@ class HeroText extends React.Component {
         <Typist.Delay ms={300} />
         <span>.</span>
         <Typist.Backspace count={29} delay={10} />
-        <strong>Tek tad Lukonez bude mlad </strong> 
+        <strong>Tek tad Lukonez bude mlad.</strong>
       </StyledTypist>
-    )
+    );
   }
 }
 
-export default HeroText
+export default HeroText;
